@@ -2,7 +2,7 @@
 
 
 #include <stdio.h>
-int main(void) {
+int main(void)  {
     int n;
     scanf("%d", &n);
     if(n == 12 || n == 1 || n == 2) {

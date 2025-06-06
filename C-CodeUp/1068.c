@@ -1,26 +1,21 @@
-// 평가 입력받아 다르게 출력하기
+// 정수 1개 입력받아 평가 출력하기
 
 
 #include <stdio.h>
 int main(void) {
-
-    char n,A,B,C,D;
-    scanf("%c", &n);
-
-    if(n == 'A') {
-        printf("best!!!\n");
+    int n;
+    scanf("%d", &n);
+    if(n >= 90 && n <= 100) {
+        printf("A\n");
     }
-    else if(n == 'B') {
-        printf("good!!\n");
-    } 
-    else if(n == 'C') {
-        printf("run!\n");
+    if(n >= 70 && n <= 89) {
+        printf("B\n");
     }
-    else if(n == 'D') {
-        printf("slowly~\n");
+    if(n >= 40 && n <= 69) {
+        printf("C\n");
     }
-    else {
-        printf("what?\n");
+    if(n >= 0 && n <= 39) {
+        printf("D\n");
     }
     return 0;
 }
