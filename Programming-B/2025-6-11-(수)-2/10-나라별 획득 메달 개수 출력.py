@@ -10,6 +10,3 @@ for row in medal:
 print("금:", g)
 print("은:", s)
 print("동:", b)
-        
-        
-        
