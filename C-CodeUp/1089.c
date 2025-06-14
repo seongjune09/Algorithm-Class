@@ -2,6 +2,12 @@
 
 #include <stdio.h>
 int main(void) {
-    int a,b,c;
-    scanf("%d %d %d", &a,&b,&c);
+    int a,d,n;
+    scanf("%d %d %d", &a,&d,&n);
+    int sum = a;
+    for(int i=0; i<n-1; i++) {
+        sum = sum + d;
+    }
+    printf("%d", sum);
+    return 0;
 }
