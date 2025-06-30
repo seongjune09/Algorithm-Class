@@ -1,6 +1,6 @@
 #include <stdio.h>
 int fibo(int n);
-int main(){
+int main(void){
     int n;
     scanf("%d",&n);
     printf("%d",fibo(n-1));
