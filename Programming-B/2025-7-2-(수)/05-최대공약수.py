@@ -11,6 +11,7 @@ print(gcd(60, 24))  # 12
 print(gcd(81, 27))  # 27
 
 
+# 유클리드 
 # def gcd(a,b):
 #     if b == 0:
 #         return a
