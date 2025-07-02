@@ -7,8 +7,7 @@ def ins_sort(a):
             a[j+1] = a[j]
             j -= 1
         a[j+1] = key
-    return a
-
+            
 d = [2,4,5,1,3]
 ins_sort(d)
 print(d)
