@@ -14,11 +14,7 @@ int main(void) {
         map[stx][sty] = i;
         stx += dx[d];
         sty += dy[d];
-        if(stx < 0 && ) {
-
-        }
-    }
     
-
+    }
 
 }

@@ -3,7 +3,7 @@ int fibo(int n);
 int main(void){
     int n;
     scanf("%d",&n);
-    printf("%d",fibo(n-1));
+    printf("%d",fibo(n));
 
     return 0;
 }
