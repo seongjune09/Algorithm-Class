@@ -1,7 +1,8 @@
 {
   "files.associations": {
     "stdio.h": "c",
-    "1093.C": "cpp"
+    "1093.C": "cpp",
+    "과제2.C": "cpp"
   },
   "python.analysis.autoSearchPaths": false,
   "python.analysis.diagnosticMode": "openFilesOnly",
