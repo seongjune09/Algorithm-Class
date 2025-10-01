@@ -2,7 +2,12 @@
   "files.associations": {
     "stdio.h": "c",
     "1093.C": "cpp",
-    "과제2.C": "cpp"
+    "과제2.C": "cpp",
+    "array": "cpp",
+    "string": "cpp",
+    "string_view": "cpp",
+    "vector": "cpp",
+    "삽입연결리스트.C": "cpp"
   },
   "python.analysis.autoSearchPaths": false,
   "python.analysis.diagnosticMode": "openFilesOnly",
