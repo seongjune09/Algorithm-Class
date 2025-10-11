@@ -42,8 +42,17 @@ int main(void)
     Node *p = head;
     while (p != NULL)
     {
-        printf("%d ", p->data);
+        printf("%c ", p->data);
         p = p->next;
     }
+
+    Node *temp;
+    while (head != NULL)
+    {
+        temp = head;
+        head = head->next;
+        free(temp);
+    }
+
     return 0;
 }
