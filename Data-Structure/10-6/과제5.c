@@ -10,11 +10,11 @@ typedef struct Node
     struct Node *next;
 } Node;
 
-void Reverse(Node *node)
+void reverse(Node *node)
 {
     if (node == NULL)
         return;
-    Reverse(node->next);
+    reverse(node->next);
     printf("%d ", node->data);
 }
 
@@ -46,7 +46,7 @@ int main(void)
         }
     }
 
-    Reverse(head);
+    reverse(head);
 
     Node *temp;
     while (head != NULL)

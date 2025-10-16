@@ -45,22 +45,17 @@ int main(void)
 
     Node *p = head;
     int ps = 1;
-    int found = 0;
 
     while (p != NULL)
     {
         if (p->data == t)
         {
             printf("%d\n", ps);
-            found = 1;
             break;
         }
         p = p->next;
         ps++;
     }
-
-    if (!found)
-        printf("0\n");
 
     Node *temp;
     while (head != NULL)
