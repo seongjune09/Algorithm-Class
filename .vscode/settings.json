@@ -8,7 +8,8 @@
     "string_view": "cpp",
     "vector": "cpp",
     "삽입연결리스트.C": "cpp",
-    "myproject.C": "cpp"
+    "myproject.C": "cpp",
+    "복습1.C": "cpp"
   },
   "python.analysis.autoSearchPaths": false,
   "python.analysis.diagnosticMode": "openFilesOnly",
