@@ -41,14 +41,6 @@ int main(void)
         scanf("%d", &s);
         scanf("%d", &value);
 
-        // if (s == 1)
-        // {
-        //     new->next = head; // 1을 입력하면 제일 처음 삽입
-        //     head = new;
-        // }
-        // else if (s == 2) // 2를 입력하였을 때 중간 삽입을 모르겠습니다.
-        // {
 
-        // }
     }
 }
