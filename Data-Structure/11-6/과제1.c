@@ -26,5 +26,17 @@ int main(void)
 
         new->data = value;
         new->next = NULL;
+
+        if (head != NULL)
+        {
+            tail->next = new;
+            tail = new;
+        }
+
+        else
+        {
+            head = new;
+            tail = new;
+        }
     }
 }
