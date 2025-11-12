@@ -1,5 +1,7 @@
 // 1. 사용자가 노드 수 입력하면 완전이진트리라고 가정하고 트리 생성(노드 data도 사용자 입력, 노드 포인터 배열 사용)
 
+// 노드 포인터 배열사용법 : 배열(Node *nodes[n])
+
 #include <stdio.h>
 #include <stdlib.h>
 
@@ -7,36 +9,36 @@ typedef int element;
 typedef struct Node
 {
     element data;
-    struct Node *next;
+    struct Node *left; // 링리는 next를 연결하지만 이진트리는 왼쪽, 오른쪽의 자식을 연결하기 때문에
+    struct Node *right;
 } Node;
 
 int main(void)
 {
 
-    Node *head = NULL;
-    Node *tail = NULL;
-
-    int n, value;
+    int n;
     scanf("%d", &n);
+
+    Node *node[n]; // 노드 포인트 배열 사용 n개의 배열 생성
+    for (int i = 0; i < n; i++)
+    {
+        node[i] = (Node *)malloc(sizeof(Node)); // i라고 가정하고 동적메모리 생성
+        scanf("%d", &node[i]->data);            // i++ 되면서 i자리에 데이터 값 넣어주기
+        node[i]->left = NULL;                   // 링리 처럼 처음 left와 right는 널값
+        node[i]->right = NULL;
+    }
 
     for (int i = 0; i < n; i++)
     {
-        scanf("%d", &value);
-        Node *new = (Node *)malloc(sizeof(Node));
-
-        new->data = value;
-        new->next = NULL;
-
-        if (head != NULL)
+        if (2 * i + 1 < n) // 루트는 인덱스가 0이 됨 2 * i + 1을 해서 n보다 작다면 왼쪽 자식에 저장
         {
-            tail->next = new;
-            tail = new;
+            node[i]->left = node[2 * i + 1];
         }
-
-        else
+        if (2 * i + 2 < n) // 2 * i +2 를 했을 때 n보다 작으면 오른쪽 자식에 저장
         {
-            head = new;
-            tail = new;
+            node[i]->right = node[2 * i + 2];
         }
     }
+
+    return 0;
 }
