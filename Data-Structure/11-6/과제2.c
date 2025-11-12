@@ -13,6 +13,13 @@ typedef struct Node
     struct Node *right;
 } Node;
 
+void preorder(Node *root) // 전위 순회 함수
+{
+    printf("%d ", root->data); // 루트 노드의 데이터를 출력
+    preorder(root->left);      // 왼쪽 트리를 재귀 호출
+    preorder(root->right);     // 오른쪽 트리를 재귀 호출
+}
+
 int main(void)
 {
 
@@ -40,21 +47,11 @@ int main(void)
         }
     }
 
+    preorder(node[0]); // 루트 노드에서부터 전위순회
+    printf("\n");
+
+    for (int i = 0; i < n; i++)
+        free(node[i]);
+
     return 0;
 }
-
-void preorder(Node *node)
-{
-
-    if (node == NULL)
-        return;
-    printf("%d", node->data);
-    predorder(node->left);
-    preorder(node->right);
-}
-
-// 중위
-
-void
-
-    // 후위
