@@ -1,44 +1,98 @@
 // 3. 중위 순회 재귀 사용하지 않고 반복문으로 만들기(스택 사용해야됨)
 
-// 노드 포인터 배열사용법 : 배열(Node *nodes[n])
-
 #include <stdio.h>
 #include <stdlib.h>
 
-typedef int element;
-typedef struct Node
+struct Node
 {
-    element data;
-    struct Node *left; // 링리는 next를 연결하지만 이진트리는 왼쪽, 오른쪽의 자식을 연결하기 때문에
+    int data;
+    struct Node *left;
     struct Node *right;
-} Node;
+};
 
-int main(void)
+struct Node *root = NULL;
+
+struct Node *stack[101] = {
+    0,
+};
+int top = -1;
+
+void free_order(struct Node *root)
 {
+    if (root == NULL)
+        return;
+    free_order(root->left);
+    free_order(root->right);
+    free(root);
+}
 
-    int n;
-    scanf("%d", &n);
+int insert_node(struct Node *root, struct Node *cur)
+{
+    struct Node *queue[100];
+    int front = 0, rear = 0;
+    queue[rear++] = root;
 
-    Node *node[n]; // 노드 포인트 배열 사용 n개의 배열 생성
-    for (int i = 0; i < n; i++)
+    while (front < rear)
     {
-        node[i] = (Node *)malloc(sizeof(Node)); // i라고 가정하고 동적메모리 생성
-        scanf("%d", &node[i]->data);            // i++ 되면서 i자리에 데이터 값 넣어주기
-        node[i]->left = NULL;                   // 링리 처럼 처음 left와 right는 널값
-        node[i]->right = NULL;
-    }
+        struct Node *node = queue[front++];
 
-    for (int i = 0; i < n; i++)
+        if (node->left == NULL)
+        {
+            node->left = cur;
+            return 1;
+        }
+        else if (node->right == NULL)
+        {
+            node->right = cur;
+            return 1;
+        }
+        else
+        {
+            queue[rear++] = node->left;
+            queue[rear++] = node->right;
+        }
+    }
+    return 0;
+}
+int main()
+{
+    int N;
+    scanf("%d", &N);
+    for (int i = 1; i <= N; i++)
     {
-        if (2 * i + 1 < n) // 루트는 인덱스가 0이 됨 2 * i + 1을 해서 n보다 작다면 왼쪽 자식에 저장
+        struct Node *cur = (struct Node *)malloc(sizeof(struct Node));
+        scanf("%d", &cur->data);
+        cur->left = NULL;
+        cur->right = NULL;
+        if (root == NULL)
         {
-            node[i]->left = node[2 * i + 1];
+            root = cur;
+            continue;
         }
-        if (2 * i + 2 < n) // 2 * i +2 를 했을 때 n보다 작으면 오른쪽 자식에 저장
-        {
-            node[i]->right = node[2 * i + 2];
-        }
+        insert_node(root, cur);
     }
-
+    stack[++top] = root;
+    printf("==inorder==\n");
+    while (top >= 0)
+    {
+        if (stack[top]->left)
+        {
+            int prev = top;
+            stack[++top] = stack[prev]->left;
+            stack[prev]->left = NULL;
+            continue;
+        }
+        printf("%d\n", stack[top]->data);
+        if (stack[top]->right)
+        {
+            int prev = top--;
+            stack[++top] = stack[prev]->right;
+            stack[prev]->right = NULL;
+            continue;
+        }
+        stack[top--] = 0;
+    }
+    printf("==inorder process done==");
+    free_order(root);
     return 0;
 }
