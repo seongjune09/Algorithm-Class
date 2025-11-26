@@ -1,3 +1,5 @@
+//  BST 삽입
+
 #include <stdio.h>
 #include <stdlib.h>
 
