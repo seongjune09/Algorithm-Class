@@ -22,6 +22,18 @@ Node *new(element data)
 }
 
 // 삽입 하는 함수
+Node *insert(Node *root, element data)
+{
+    if (root == NULL)
+        return createNode(data); // 빈 자리면 삽입
+
+    if (data < root->data)
+        root->left = insert(root->left, data); // 왼쪽 삽입
+    else if (data > root->data)
+        root->right = insert(root->right, data); // 오른쪽 삽입
+
+    return root;
+}
 
 // 삭제하는 함수
 
