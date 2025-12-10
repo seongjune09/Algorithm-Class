@@ -25,52 +25,52 @@ Node *reverse(Node *head)
     return prev;
 }
 
-void printList(Node *head)
-{
-    Node *temp = head;
-    while (temp != NULL)
-    {
-        printf("%d\n", temp->data);
-        temp = temp->next;
-    }
-}
+// void printList(Node *head)
+// {
+//     Node *temp = head;
+//     while (temp != NULL)
+//     {
+//         printf("%d\n", temp->data);
+//         temp = temp->next;
+//     }
+// }
 
-int main(void)
-{
-    int n;
-    scanf("%d", &n);
+// int main(void)
+// {
+//     int n;
+//     scanf("%d", &n);
 
-    Node *head = NULL;
-    Node *temp = NULL;
-    Node *end = NULL;
+//     Node *head = NULL;
+//     Node *temp = NULL;
+//     Node *end = NULL;
 
-    for (int i = 0; i < n; i++)
-    {
-        temp = (Node *)malloc(sizeof(Node));
-        scanf("%d", &temp->data);
-        temp->next = NULL;
+//     for (int i = 0; i < n; i++)
+//     {
+//         temp = (Node *)malloc(sizeof(Node));
+//         scanf("%d", &temp->data);
+//         temp->next = NULL;
 
-        if (head == NULL)
-        {
-            head = temp;
-            end = temp;
-        }
-        else
-        {
-            end->next = temp;
-            end = temp;
-        }
-    }
+//         if (head == NULL)
+//         {
+//             head = temp;
+//             end = temp;
+//         }
+//         else
+//         {
+//             end->next = temp;
+//             end = temp;
+//         }
+//     }
 
-    head = reverse(head);
-    printList(head);
+//     head = reverse(head);
+//     printList(head);
 
-    temp = head;
-    while (temp != NULL)
-    {
-        Node *next = temp->next;
-        free(temp);
-        temp = next;
-    }
-    return 0;
-}
+//     temp = head;
+//     while (temp != NULL)
+//     {
+//         Node *next = temp->next;
+//         free(temp);
+//         temp = next;
+//     }
+//     return 0;
+// }
