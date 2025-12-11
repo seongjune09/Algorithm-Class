@@ -19,7 +19,6 @@ T *create(int key)
 
 T *insert_jaegui(T *n, int key)
 {
-
     if (n == NULL)
     {
         return create(key);
