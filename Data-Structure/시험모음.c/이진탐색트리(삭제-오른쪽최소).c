@@ -17,7 +17,7 @@ T *create(int key)
     return node;
 };
 
-T *serach_min(T *n)
+T *search(T *n)
 {
     while (n->left != NULL)
     {
@@ -26,36 +26,38 @@ T *serach_min(T *n)
     return n;
 }
 
-T *Delete(T *n, int key)
+T *delete(T *n, int key)
 {
     if (n == NULL)
+    {
         return NULL;
-
+    }
     if (n->data < key)
     {
-        n->right = Delete(n->right, key);
+        n->right = delete(n->right, key);
     }
     else if (n->data > key)
     {
-        n->left = Delete(n->left, key);
+        n->left = delete(n->left, key);
     }
     else
     {
-        if (n->left == NULL)
+        if (n->right == NULL)
         {
-            T *c = n->right;
+            T *a = n->left;
             free(n);
-            return c;
+            return a;
         }
-        else if (n->right == NULL)
+        else if (n->left == NULL)
         {
-            T *temp = n->left;
+            T *b = n->right;
             free(n);
-            return temp;
+            return b;
         }
-        T *t = search_min(n->right);
+
+        T *t = search(n->right);
         n->data = t->data;
-        n->right = Delete(n->right, t->data);
+        n->right = delete(n->right, t->data);
     }
     return n;
 }
