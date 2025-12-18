@@ -17,7 +17,7 @@ T *create(int key)
     return node;
 };
 
-T *search(T *n)
+T *search_min(T *n)
 {
     while (n->left != NULL)
     {
@@ -55,7 +55,7 @@ T *delete(T *n, int key)
             return b;
         }
 
-        T *t = search(n->right);
+        T *t = search_min(n->right);
         n->data = t->data;
         n->right = delete(n->right, t->data);
     }

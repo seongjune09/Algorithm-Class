@@ -17,7 +17,7 @@ T *create(int key)
     return node;
 };
 
-T *search(T *n)
+T *search_max(T *n)
 {
     while (n->right != NULL)
     {
@@ -55,7 +55,7 @@ T *delete(T *n, int key)
             return b;
         }
 
-        T *t = search(n->left);
+        T *t = search_max(n->left);
         n->data = t->data;
         n->left = delete(n->left, t->data);
     }
