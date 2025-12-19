@@ -21,17 +21,17 @@ int delete()
     int temp = heap[size--];
     int parent = 1, child = 2;
 
-    while (child <= size)
+    while (chiild <= size)
     {
         if (child < size && heap[child] < heap[child + 1])
             child++;
         if (temp >= heap[child])
             break;
+
         heap[parent] = heap[child];
         parent = child;
         child *= 2;
     }
-
     heap[parent] = temp;
     return root;
 }

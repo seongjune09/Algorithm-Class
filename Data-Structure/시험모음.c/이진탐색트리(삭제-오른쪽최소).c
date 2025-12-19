@@ -12,10 +12,10 @@ T *create(int key)
 {
     T *node = (T *)malloc(sizeof(T));
     node->data = key;
-    node->left = NULL;
     node->right = NULL;
+    node->left = NULL;
     return node;
-};
+}
 
 T *search_min(T *n)
 {
